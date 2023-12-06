@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/sonupathak1/helloworld.git'
+        git branch: 'main', url: 'https://github.com/Naween-Kumar/helloworld1.git'
       }
     }
     stage('Pull Changes') {
@@ -29,7 +29,7 @@ pipeline {
     stage("Deploy") {
           steps {
               script {
-                 deploy adapters: [tomcat8(credentialsId: 'tomcat_deployer', path: '', url: 'http://192.168.56.27:9000/')], contextPath: '/pipeline', onFailure: false, war: 'webapp/target/*.war' 
+                 deploy adapters: [tomcat8(credentialsId: 'tomcat_deployer', path: '', url: 'http://192.168.56.21:9001/')], contextPath: '/pipeline', onFailure: false, war: 'webapp/target/*.war' 
               }
           }
       }
